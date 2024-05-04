@@ -8,73 +8,74 @@
                 <div class="col-md-6 offset-md-3">
                     <h2>Nuevo Empleado</h2>
                     <hr/>
-                    <form th:action="@{'/employee/save'}" method="post">
+                    <form th:action="@{'/employee/save'}" method="post" th:object="${employee}">
+                        <input type="hidden" th:field="*{id}"/>
                         <div class="mb-3">
-                            <label for="firstname" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" name="firstname" id="firstname"/>
+                            <label  class="form-label">Nombre</label>
+                            <input type="text" class="form-control" th:field="*{firstname}"/>
                         </div>
                         <div class="mb-3">
-                            <label for="lastname" class="form-label">Apellido</label>
-                            <input type="text" class="form-control" name="lastname" id="lastname"/>
+                            <label  class="form-label">Apellido</label>
+                            <input type="text" class="form-control"  th:field="*{lastname}"/>
                         </div>
                         <div class="mb-3">
-                            <label for="title" class="form-label">Título</label>
-                            <input type="text" class="form-control" name="title" id="title"/>
+                            <label  class="form-label">Título</label>
+                            <input type="text" class="form-control" th:field="*{title}"/>
                         </div>
                         <div class="mb-3">
-                            <label for="titleofcourtesy" class="form-label">Título de cortesía</label>
-                            <input type="text" class="form-control" name="titleofcourtesy" placeholder="Mr. Ms. Dr. etc"
-                                   id="titleofcourtesy"/>
+                            <label class="form-label">Título de cortesía</label>
+                            <input type="text" class="form-control" th:field="*{titleofcourtesy}" placeholder="Mr. Ms. Dr. etc"
+                                   />
                         </div>
                         <div class="mb-3">
-                            <label for="birthdate" class="form-label">Fecha de nacimiento</label>
-                            <input type="text" class="form-control" name="birthdateStr" placeholder="dd-MM-yyyy"
-                                   id="birthdate"/>
+                            <label class="form-label">Fecha de nacimiento</label>
+                            <input type="text" class="form-control" th:field="*{birthdate}" placeholder="dd-MM-yyyy"
+                                   />
                         </div>
                         <div class="mb-3">
-                            <label for="hiredate" class="form-label">Fecha de ingreso</label>
-                            <input type="text" class="form-control" name="hiredateStr" placeholder="dd-MM-yyyy"
-                                   id="hiredate"/>
+                            <label  class="form-label">Fecha de ingreso</label>
+                            <input type="text" class="form-control" th:field="*{hiredate}" placeholder="dd-MM-yyyy"
+                                   />
                         </div>
                         <div class="mb-3">
-                            <label for="address" class="form-label">Dirección</label>
-                            <input type="text" class="form-control" name="address" id="address"/>
+                            <label  class="form-label">Dirección</label>
+                            <input type="text" class="form-control" th:field="*{address}"/>
                         </div>
                         <div class="mb-3">
-                            <label for="city" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" name="city" id="city"/>
+                            <label  class="form-label">Ciudad</label>
+                            <input type="text" class="form-control" th:field="*{city}"/>
                         </div>
                         <div class="mb-3">
-                            <label for="region" class="form-label">Región</label>
-                            <input type="text" class="form-control" name="region" id="region"/>
+                            <label  class="form-label">Región</label>
+                            <input type="text" class="form-control" th:field="*{region}"/>
                         </div>
                         <div class="mb-3">
-                            <label for="postalcode" class="form-label">Código postal</label>
-                            <input type="text" class="form-control" name="postalcode" id="postalcode"/>
+                            <label  class="form-label">Código postal</label>
+                            <input type="text" class="form-control" th:field="*{postalcode}"/>
                         </div>
                         <div class="mb-3">
-                            <label for="country" class="form-label">Pais</label>
-                            <input type="text" class="form-control" name="country" id="country"/>
+                            <label  class="form-label">Pais</label>
+                            <input type="text" class="form-control" th:field="*{country}"/>
                         </div>
                         <div class="mb-3">
-                            <label for="homephone" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" name="homephone" id="homephone"/>
+                            <label  class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" th:field="*{homephone}"/>
                         </div>
                         <div class="mb-3">
-                            <label for="extension" class="form-label">Anexo</label>
-                            <input type="text" class="form-control" name="extension" id="extension"/>
+                            <label  class="form-label">Anexo</label>
+                            <input type="text" class="form-control" th:field="*{extension}"/>
                         </div>
                         <div class="mb-3">
-                            <label for="notes" class="form-label">Notas</label>
-                            <input type="text" class="form-control" name="notes" id="notes" requiered/>
+                            <label  class="form-label">Notas</label>
+                            <input type="text" class="form-control" th:field="*{notes}" requiered/>
                         </div>
                         <div class="mb-3">
-                            <label for="salary" class="form-label">Salario</label>
-                            <input type="number" class="form-control" name="salary" id="salary"/>
+                            <label  class="form-label">Salario</label>
+                            <input type="number" class="form-control" th:field="*{salary}"/>
                         </div>
                         <div class="mb-3">
-                            <label for="manager" class="form-label">Jefe</label>
-                            <select class="form-select" name="manager" id="manager">
+                            <label  class="form-label">Jefe</label>
+                            <select class="form-select" th:field="*{manager}">
                                 <option th:each="jefe : ${listaJefes}"
                                         th:text="|${jefe.firstname} ${jefe.lastname==null?'':jefe.lastname}|"
                                         th:value="${jefe.id}"></option>
